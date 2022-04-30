@@ -4,18 +4,23 @@
     <head>
         <meta charset="utf-8">
         <title>Genedor Reportes de Servicio</title>
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.15.3/xlsx.full.min.js"></script>
-        
+        <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.15.3/xlsx.full.min.js"></script> -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js" 
+        integrity="sha512-r22gChDnGvBylk90+2e/ycr3RVrDi8DIOkIGNhJlKfuyQM4tIRAI062MaV8sfjQKYVGjOBaZBOA87z+IhZE9DA==" 
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     </head>
 
     <body>
         <input type="file" id="archivoexcel" accept=".xls,.xlsx" /> </br>
         
         <button type="button" id="cargaExcel">Convertir</button>
-        <pre id="jsonData">
+        <div id="jsonData">
+            <table>
+                
+            </table>
         
 
-        </pre>  <!--El tag pre permite mantener la estructura de texto tal cual se inserta.
+        </div>  <!--El tag pre permite mantener la estructura de texto tal cual se inserta.
         respeta espacios, tabulaciones y puntuaciones.-->
     </body>
     <script type="text/javascript" src="./App.js"></script>

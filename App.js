@@ -3,37 +3,37 @@
 
 var file;
 var evento1 = document.querySelector("#archivoexcel");
-
+console.log(window); //este console me permite ver las cosas que posee la ventana. En este caso, me muestra el XLSX ya que se importó
+                    //por medio de un script
 evento1.addEventListener("change", (event)=>{
     file = event.target.files[0];
-    console.log(file);
 
 });
 
 //console.log();
+var rowObject;
 document.querySelector("#cargaExcel").addEventListener("click", ()=>{
     if(file){
         console.log("hi");
-        var fileReader = new FileReader();
-        //console.log(fileReader);
-        console.log('Estoy despues del filereader');
-        fileReader.onload = function(event){
+        let fileReader = new FileReader(); //FileReader es una clase para leer archivos y retorna un objeto
+        fileReader.readAsBinaryString(file); 
+        fileReader.onload = (event) => {
             var data = event.target.result;
-            console.log(event.target.result);
-            var workbook = XLSX.read(data, {
+            var workbook = XLSX.read(data, {  //esta funcion lee el objeto xlsx que está en binario y retorna un objeto con direfentes cosas.
                 type: "binary"
             });
-            console.log(workbook);
-            workbook.SheetNames.forEach(sheet => {
-                let rowObject = XLSX.utils.sheet_to_row_object_array(
-                    workbook.Sheets[sheet]
-                );
-                let jsonObject = JSON.stringify(rowObject);
-                document.getElementById("jsonData").innerHTML = jsonObject;
-                //console.log(jsonObject);
-            });
-        };
-        fileReader.readAsBinaryString(file);
+        workbook.SheetNames.forEach(sheet => {
+            rowObject = XLSX.utils.sheet_to_row_object_array(
+                workbook.Sheets[sheet]
+            );
+            let jsonObject = JSON.stringify(rowObject);
+            //document.querySelector("#jsonData").innerHTML = jsonObject;
+                
+         }); 
+            console.log(typeof rowObject);
+    };
+        
+        
 
         /*Para que fileReader.onload se ejecute, debe haberse leido el contenido del file
         ya sea con readAsArrayBuffer, reasAsBinaryString entre otros... de lo contrario, 
