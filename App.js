@@ -30,7 +30,7 @@ document.querySelector("#cargaExcel").addEventListener("click", ()=>{
             //document.querySelector("#jsonData").innerHTML = jsonObject;
                 
          }); 
-            console.log(typeof rowObject);
+            console.log(rowObject);
     };
         
         
