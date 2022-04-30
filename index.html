@@ -4,25 +4,33 @@
     <head>
         <meta charset="utf-8">
         <title>Genedor Reportes de Servicio</title>
-        <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.15.3/xlsx.full.min.js"></script> -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js" 
-        integrity="sha512-r22gChDnGvBylk90+2e/ycr3RVrDi8DIOkIGNhJlKfuyQM4tIRAI062MaV8sfjQKYVGjOBaZBOA87z+IhZE9DA==" 
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
     </head>
 
     <body>
-        <input type="file" id="archivoexcel" accept=".xls,.xlsx" /> </br>
+        <input type="file" id="archivoexcel" accept=".xls,.xlsx" > </br>
         
         <button type="button" id="cargaExcel">Convertir</button>
-        <div id="jsonData">
-            <table>
-                
-            </table>
+        <table id="tabla" style="display:none;">
+            <tr id="tabla">
+                <th>EQUIPO</th>
+                <th>MARCA</th>
+                <th>MODELO</th>
+                <th>SERIE</th>
+                <th>RIESGO</th>
+                <th>REGISTRO_SANITARIO</th>
+                <th>ACTIVO_FIJO</th>
+                <th>ASIGNADO_A</th>
+                <th>UBICACION</th>
+            </tr>
         
 
-        </div>  <!--El tag pre permite mantener la estructura de texto tal cual se inserta.
+        </table>  <!--El tag pre permite mantener la estructura de texto tal cual se inserta.
         respeta espacios, tabulaciones y puntuaciones.-->
     </body>
     <script type="text/javascript" src="./App.js"></script>
+
 
 </html>
